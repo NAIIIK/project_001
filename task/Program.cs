@@ -3,9 +3,14 @@
 // либо задать на старте выполнения алгоритма. При решении не рекомендуется пользоваться
 // коллекциями, лучше обойтись исключительно массивами.
 
+// Примеры:
+// [“Hello”, “2”, “world”, “:-)”] → [“2”, “:-)”]
+// [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
+// [“Russia”, “Denmark”, “Kazan”] → []
+
 string Prompt(string message)
 {
-    Console.WriteLine(message);
+    Console.Write(message);
     return Console.ReadLine()!;
 }
 
@@ -27,8 +32,36 @@ void PrintArray(string[] array)
     }
 }
 
+string[] NewArray(string[] array)
+{
+    string[] result = new string[array.Length];
+    int resultSize = 0;
+    foreach (string arg in array)
+    {
+        if (arg.Length <= 3)
+        {
+            result[resultSize] = arg;
+            resultSize++;
+        }
+    }
+    return result;
+}
+
+Console.Clear();
+
 int arrayLength = int.Parse(Prompt("Введите размер массива: "));
 
-string[] strArray = InputArray(arrayLength);
+string[] stringArray = InputArray(arrayLength);
 
-PrintArray(strArray);
+Console.Write("Введённый массив --> ");
+
+PrintArray(stringArray);
+
+string[] resultArray = NewArray(stringArray);
+
+Console.Write("\nИскомый массив --> ");
+
+PrintArray(resultArray);
+
+// commit
+// comments
