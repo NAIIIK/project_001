@@ -8,12 +8,14 @@
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
 
+// Метод для получения данных от пользователя
 string Prompt(string message)
 {
     Console.Write(message);
     return Console.ReadLine()!;
 }
 
+// Метод для получения элементов массива от пользователя
 string[] InputArray(int size)
 {
     string[] result = new string[size];
@@ -24,6 +26,7 @@ string[] InputArray(int size)
     return result;
 }
 
+// Метод для печати массива
 void PrintArray(string[] array)
 {
     for (int i = 0; i < array.Length; i++)
@@ -32,10 +35,12 @@ void PrintArray(string[] array)
     }
 }
 
+// Метод для получения массива элементов с длиной >= 3
 string[] NewArray(string[] array)
 {
     string[] result = new string[array.Length];
     int resultSize = 0;
+    // Отдельная переменная индекса искомого массива
     foreach (string arg in array)
     {
         if (arg.Length <= 3)
@@ -62,6 +67,3 @@ string[] resultArray = NewArray(stringArray);
 Console.Write("\nИскомый массив --> ");
 
 PrintArray(resultArray);
-
-// commit
-// comments
